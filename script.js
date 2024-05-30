@@ -32,7 +32,7 @@ artistDD.addEventListener("change", (e) => {
             <h3 class="artist">Artist: Artist Name</h4>
             <h4 class="artTitle">Title: Artwork</h3>            
             <p class="artDate">Date: 12/12/1912</p>            
-            <p class="artDesc">More Details:Please select an artist to populate this area.</p>
+            <p class="artDesc">More Details:<span style="color:rgb(155, 0, 0)">Please select an artist to populate this area.</span></p>
           </div>
         </div>             
         `;  
