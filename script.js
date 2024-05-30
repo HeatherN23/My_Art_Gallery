@@ -26,7 +26,7 @@ artistDD.addEventListener("change", (e) => {
     gallery.innerHTML=
     `  <div class="artRow">                                         
           <div class="imageContainer">                                 
-            <img class="artImg" src="../images/generic_cubist_img.png" width="300"/>    
+            <img class="artImg" src="/My_Art_Gallery/images/generic_cubist_img.png" width="300"/>    
           </div>                        
           <div class="artData">
             <h3 class="artist">Artist: Artist Name</h4>
