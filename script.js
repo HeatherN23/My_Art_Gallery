@@ -1,23 +1,5 @@
-//REQUEST FOR RECORDS BY ID
-//GET /public/collection/v1/objects/[objectID] returns a record for an object
-// Request: https://collectionapi.metmuseum.org/public/collection/v1/objects/[objectID]
 
-// QUERY REQUEST
-//GET /public/collection/v1/search   returns a listing of all Object IDs for objects that contain the search query within the object’s data
-//https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers
-
-// MEDIUM REQUEST
-//https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Quilts|Silk|Bedcovers&q=quilt
-
-//ARTIST OR CULTURE REQUEST
-//https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&q=french
-
-//DATE RANGE REQUEST
-//https://collectionapi.metmuseum.org/public/collection/v1/search?dateBegin=1700&dateEnd=1800&q=African
-
-//let axios = "https://unpkg.com/axios/dist/axios.min.js"
-
-
+// Target DOM elements
 const gallery = document.querySelector(".gallery");
 const artistDD = document.querySelector("#artDD");
 const artImg = document.querySelector(".artImg");
@@ -27,9 +9,9 @@ const artDate = document.querySelector(".artDate");
 const artDesc = document.querySelector(".artDesc");
 const error = document.querySelector(".error");
 
-// listen for events
+// Listen for events
 artistDD.addEventListener("change", (e) => {
-  e.preventDefault(); // PREVENT THE FORM FROM REFRESHING   
+  e.preventDefault();                                 // PREVENT THE FORM FROM REFRESHING   
 
   //If the user selects a dropdown item, erase the existing artwork and get the enw Data
   if (artistDD.value !== "error") {
@@ -58,6 +40,7 @@ artistDD.addEventListener("change", (e) => {
    
 });
 
+/***  This function builds the HTML to display the rows of art work and relevant data  ***/
 function getArtDetails(response) {
   let html = `  
     <div class="artRow">
@@ -77,6 +60,13 @@ function getArtDetails(response) {
   newDiv.insertAdjacentHTML("beforeend", html);  
 }
 
+/* This function places two asynchronous calls to the API.  
+ * The first call fetches the object numbers relevent to the the artist selected.
+ * The second call uses the object numbers to collect information about each art object
+ * and then calls the getArtDetails function to build the HTML to display the rows
+ * of artwork.  
+ * NOTE: I have chosen to limit the artwork displayed to 9 items.
+ */
 async function getArtData(search) {
   // Fetch the artist ID
   let response = await fetch(
@@ -101,7 +91,7 @@ async function getArtData(search) {
             if( response.artistDisplayName.includes(search)  )   {
               if ( typeof(response.primaryImageSmall) !== 'undefined') { 
                 if( response.primaryImageSmall !== "" ) {
-                getArtDetails(response);
+                  getArtDetails(response);
                 }
               }   
             }         
