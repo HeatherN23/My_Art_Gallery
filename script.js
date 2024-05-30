@@ -26,13 +26,13 @@ artistDD.addEventListener("change", (e) => {
     gallery.innerHTML=
     `  <div class="artRow">                                         
           <div class="imageContainer">                                 
-            <img class="artImg" src="/images/generic_cubist_img.png" width="300"/>    
+            <img class="artImg" src="../images/generic_cubist_img.png" width="300"/>    
           </div>                        
           <div class="artData">
             <h3 class="artist">Artist: Artist Name</h4>
             <h4 class="artTitle">Title: Artwork</h3>            
             <p class="artDate">Date: 12/12/1912</p>            
-            <p class="artDesc">More Details: <span class="error">Please select an artist to populate this area.</span></p>
+            <p class="artDesc">More Details:Please select an artist to populate this area.</p>
           </div>
         </div>             
         `;  
@@ -40,7 +40,7 @@ artistDD.addEventListener("change", (e) => {
    
 });
 
-/***  This function builds the HTML to display the rows of art work and relevant data  ***/
+/*  This function builds the HTML to display the rows of art work and relevant data  */
 function getArtDetails(response) {
   let html = `  
     <div class="artRow">
