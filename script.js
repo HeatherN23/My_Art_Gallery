@@ -31,8 +31,8 @@ artistDD.addEventListener("change", (e) => {
           <div class="artData">
             <h3 class="artist">Artist: Artist Name</h3>
             <h4 class="artTitle">Title: Artwork</h4>            
-            <p class="artDate">Date: 12/12/1912</p>            
-            <p class="artDesc">More Details:<span style="color:rgb(155, 0, 0)">Please select an artist to populate this area.</span></p>
+            <p class="artDate"><span class="artLabel">Date:</span> 12/12/1912</p>            
+            <p class="artDesc"><span class="artLabel">More Details:</span><span style="color:rgb(155, 0, 0)">Please select an artist to populate this area.</span></p>
           </div>
         </div>             
         `;  
@@ -50,8 +50,8 @@ function getArtDetails(response) {
       <div class="artData">
         <h3 class="artist">Artist: ${response.artistDisplayName}</h4>
         <h4 class="artTitle">Title: ${response.title}</h3>            
-        <p class="artDate">Date: ${response.objectDate}</p>            
-        <p class="artDesc">More Details: <a href="${response.objectURL}" target="_blank">${response.objectURL}</a></p>
+        <p class="artDate"><span class="artLabel">Date: </span>${response.objectDate}</p>            
+        <p class="artDesc"><span class="artLabel">More Details: </span><a href="${response.objectURL}" target="_blank" rel="noopener noreferrer">View on the Met's website (opens in new tab)</a></p>
       </div>
     </div>
   `;
@@ -96,8 +96,8 @@ async function getArtData(search) {
               }   
             }         
           })
-          .catch((error) => {
-            error.innerHTML= `${error}`;   
+          .catch((err) => {
+            error.innerHTML= `${err}`;   
         });          
       }
     });  
